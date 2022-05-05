@@ -1,0 +1,32 @@
+{
+    "deberta-v3-large": {
+        "data_dir": "data/",
+        "max_len": 100,
+        "_wandb_kernel": "nakama", 
+        "apex": true, 
+        "batch_scheduler": true, 
+        "batch_size": 32, 
+        "betas": [0.9, 0.999], 
+        "competition": "PPPM", 
+        "debug": false, 
+        "decoder_lr": 2e-04, 
+        "encoder_lr": 2e-06, 
+        "epochs": 16, 
+        "eps": 1e-06, 
+        "fc_dropout": 0.2, 
+        "max_grad_norm": 1000, 
+        "min_lr": 1e-06, 
+        "pretrained_model": "microsoft/deberta-v3-large", 
+        "n_fold": 4, 
+        "num_cycles": 0.5, 
+        "num_warmup_steps": 0, 
+        "num_workers": 4, 
+        "print_freq": 100, 
+        "scheduler": "cosine",
+        "target_size": 1, 
+        "train": true, 
+        "train_fold": [0, 1, 2, 3], 
+        "wandb": true, 
+        "weight_decay": 0.01
+    }
+}
