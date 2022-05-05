@@ -66,9 +66,9 @@ class Deberta_V3_Large():
                             'attention_mask': attention_mask,
                             'token_type_ids': token_type_ids,
                         }
-                    )
+                    ).float()
                     # compute loss
-                    loss = self.criterion(outputs.cpu(), labels)
+                    loss = self.criterion(outputs.cpu(), labels.float())
                     # backward
                     loss.backward()
                     grad_norm = torch.nn.utils.clip_grad_norm_(model.parameters(), self.args.max_grad_norm)

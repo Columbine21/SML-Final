@@ -5,7 +5,7 @@
         "_wandb_kernel": "nakama", 
         "apex": true, 
         "batch_scheduler": true, 
-        "batch_size": 32, 
+        "batch_size": 16, 
         "betas": [0.9, 0.999], 
         "competition": "PPPM", 
         "debug": false, 
