@@ -1,13 +1,9 @@
 import logging
-import pickle
 import os
 import numpy as np
-from regex import T
 import torch
 import pandas as pd
 from torch.utils.data import DataLoader, Dataset
-from easydict import EasyDict as edict
-from transformers import AutoTokenizer
 
 __all__ = ['PPPMDataLoader']
 
@@ -78,20 +74,3 @@ def PPPMDataLoader(args):
     }
     
     return dataLoader
-
-
-if __name__ == '__main__':
-    import json
-    from tqdm import tqdm
-    with open('config/config_regression.json', 'rb') as f:
-        args = json.load(f)
-    args = edict(args['deberta-v3-large-baseline'])
-    args.tokenizer = AutoTokenizer.from_pretrained(args.pretrained_model)
-    dataloader = PPPMDataLoader(args)
-
-    with tqdm(dataloader['train']) as td:
-        for batch_data in td:
-            inputs = batch_data['input_ids'].to(args.device)
-            labels = batch_data['labels'].to(args.device)
-
-
